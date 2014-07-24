@@ -8,8 +8,8 @@ using namespace std;
 map<const int, const char*> zones;          //Variable that saves the zones mob level and name
 string input = "";                          //Variable that saves user's last input
 int charLevel = 0;                          //Variable that saves the characters level
-int EficientLower = 0;                      //Variable that saves the lowest level with 100% exp efficiency
-int EficientUpper = 0;                      //Variable that saves the highest level with 100% exp efficiency
+int efficientLower = 0;                      //Variable that saves the lowest level with 100% exp efficiency
+int efficientUpper = 0;                      //Variable that saves the highest level with 100% exp efficiency
 
 int getLevel()
 {
@@ -76,16 +76,16 @@ void calculate()
     int x = charLevel >> 4;
     int Safemargin = 3 + x;
 
-    EficientLower = charLevel - Safemargin;
-    EficientUpper = charLevel + Safemargin;
+    efficientLower = charLevel - Safemargin;
+    efficientUpper = charLevel + Safemargin;
 
-    cout << "100% exp from " << EficientLower << " to " << EficientUpper << endl;
+    cout << "100% exp from " << efficientLower << " to " << efficientUpper << endl;
 }
 
 void checkZones()
 {
     cout << "That includes the following zones:" << endl;
-    for(int i = EficientLower; i <= EficientUpper; i++){
+    for(int i = efficientLower; i <= efficientUpper; i++){
         map<const int, const char *>::iterator zone = zones.find(i);  //goes trough the hole map returns zones.end() zone if none is found
 
         if(zone != zones.end()){
