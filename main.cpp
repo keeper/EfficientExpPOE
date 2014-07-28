@@ -87,8 +87,7 @@ void checkZones()
 {
     cout << "That includes the following zones:" << endl;
     for(int i = efficientLower; i <= efficientUpper; i++){
-        map<const int, const char *>::const_iterator zone = zones.find(i);  //goes trough the hole map returns zones.end() zone if none is found
-
+        auto zone = zones.find(i);  //goes trough the hole map returns zones.end() zone if none is found
         if(zone != zones.end()){
             cout << "\t" << zone->second << endl;
         }
